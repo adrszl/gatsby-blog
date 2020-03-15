@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "react-dom": "^16.13.0",
+    "@mdx-js/mdx": "^1.5.7",
+    "@mdx-js/react": "^1.5.7",
+    "gatsby": "^2.19.43",
+    "gatsby-plugin-mdx": "^1.0.82",
+    "gatsby-source-filesystem": "^2.1.55",
     "react": "^16.13.0",
-    "gatsby": "^2.19.43"
+    "react-dom": "^16.13.0"
   },
   "devDependencies": {},
   "scripts": {
