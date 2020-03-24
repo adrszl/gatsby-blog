@@ -1,9 +1,12 @@
+const siteMetadata = {
+  title: `Adrian Szlegel - Gatsby Blog`,
+  description: `Adrian Szlegel - Test blog written in React and Gatsby`,
+};
+
 module.exports = {
-    siteMetadata: {
-      title: `Adrian Szlegel - Gatsby blog`,
-      description: `Blog based od Gatsby`,
-    },
+    siteMetadata: siteMetadata,
     plugins: [
+      `gatsby-plugin-styled-components`,
       {
         resolve: `gatsby-plugin-mdx`,
         options: {
@@ -12,10 +15,7 @@ module.exports = {
       },
       {
         resolve: `gatsby-source-filesystem`,
-        options: {
-          path: `${__dirname}/posts`,
-          name: `posts`,
-        },
+        options: { path: `${__dirname}/posts`, name: `posts` },
       },
     ],
   };
