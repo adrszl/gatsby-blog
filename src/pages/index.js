@@ -1,18 +1,21 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+
 import { Layout } from '../components/Layout';
+import Dump from '../components/Dump';
 
 export default ({ data }) => {
     return (
         <React.Fragment>
             <Layout>
-                {data.allMdx.nodes.map(({ excerpt, frontmatter }) => (
-                    <React.Fragment>
-                        <h1>{frontmatter.title}</h1>
-                        <p>{frontmatter.date}</p>
-                        <p>{excerpt}</p>
-                    </React.Fragment>
-                ))}
+              <Dump data={data} />
+              {data.allMdx.nodes.map(({ excerpt, frontmatter }) => (
+                  <React.Fragment>
+                      <h1>{frontmatter.title}</h1>
+                      <p>{frontmatter.date}</p>
+                      <p>{excerpt}</p>
+                  </React.Fragment>
+              ))}
             </Layout>
         </React.Fragment>
     );
