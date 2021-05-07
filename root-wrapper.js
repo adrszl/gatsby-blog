@@ -1,17 +1,13 @@
-import { MDXProvider } from '@mdx-js/react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import React from 'react';
+import { MDXProvider } from "@mdx-js/react";
+import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
+import React from "react";
 
 const components = {
-  h2: ({ children }) => (
-    <h2 style={{ color: 'rebeccapurple' }}>{children}</h2>
-  ),
-  'p.inlineCode': props => (
-    <code style={{ backgroundColor: 'lightgray' }} {...props} />
-  ),
-  pre: props => {
-    const className = props.children.props.className || '';
+  pre: (props) => {
+    const className = props.children.props.className || "";
     const matches = className.match(/language-(?<lang>.*)/);
+
     return (
       <Highlight
         {...defaultProps}
@@ -19,15 +15,11 @@ const components = {
         language={
           matches && matches.groups && matches.groups.lang
             ? matches.groups.lang
-            : ''
-        }>
-        {({
-          className,
-          style,
-          tokens,
-          getLineProps,
-          getTokenProps,
-        }) => (
+            : ""
+        }
+        theme={theme}
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} style={style}>
             {tokens.map((line, i) => (
               <div {...getLineProps({ line, key: i })}>
